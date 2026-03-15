@@ -5,6 +5,10 @@ import NavBar from "@/components/NavBar";
 import { Toaster } from "react-hot-toast";
 import ChatWidget from "@/features/chatbot/ChatWidget";
 import PublicAuthGuard from "@/components/PublicAuthGuard";
+import { Geist, Geist_Mono } from "next/font/google";
+
+const geistSans = Geist({ subsets: ["latin"] });
+const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "JanVedha AI — Smart Civic Issue Management",
@@ -19,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-slate-50 text-gray-900 antialiased">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="min-h-screen bg-slate-50 text-gray-900 antialiased font-sans">
         <AuthProvider>
           <PublicAuthGuard>
             <NavBar />
